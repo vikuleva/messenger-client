@@ -92,15 +92,15 @@ export const MessageForm_ = (props: any) => {
 
     people.map((person) => { if (person.id == localStorage.getItem('key')) people.splice(people.indexOf(person), 1) })
 
-    let socket = new WebSocket("ws://arcane-brushlands-52780.herokuapp.com/messenger");
+    // let socket = new WebSocket("ws://arcane-brushlands-52780.herokuapp.com/messenger");
 
-    socket.onopen = function (result) {
-        console.log("Соединение открыто" + result);
-    };
+    // socket.onopen = function (result) {
+    //     console.log("Соединение открыто" + result);
+    // };
 
-    socket.onmessage = function (event) {
-        console.log("Данные" + event.data)
-    };
+    // socket.onmessage = function (event) {
+    //     console.log("Данные" + event.data)
+    // };
 
     console.log("Данные")
     console.log(people)
