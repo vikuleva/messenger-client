@@ -53,7 +53,7 @@ export const MessageForm_ = (props: any) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/persons').then(function (response) {
+        fetch(' https://arcane-brushlands-52780.herokuapp.com/persons').then(function (response) {
             if (!response.ok) {
                 console.log(response.status + ': ' + response.statusText);
                 return;
@@ -70,7 +70,7 @@ export const MessageForm_ = (props: any) => {
 
     useEffect(() => {
         setTimeout("", 2000)
-        fetch('http://localhost:8000/messagefromto/' + localStorage.getItem('key') + '/' + companionId).then(function (response) {
+        fetch(' https://arcane-brushlands-52780.herokuapp.com/messagefromto/' + localStorage.getItem('key') + '/' + companionId).then(function (response) {
             if (!response.ok) {
                 setMessages([])
                 console.log(response.status + ': ' + response.statusText);
@@ -92,7 +92,7 @@ export const MessageForm_ = (props: any) => {
 
     people.map((person) => { if (person.id == localStorage.getItem('key')) people.splice(people.indexOf(person), 1) })
 
-    let socket = new WebSocket("ws://localhost:8000/messenger");
+    let socket = new WebSocket("ws://arcane-brushlands-52780.herokuapp.com/messenger");
 
     socket.onopen = function (result) {
         console.log("Соединение открыто" + result);
@@ -165,7 +165,7 @@ export const MessageForm_ = (props: any) => {
                                     }
                                     console.log(message)
                                     let json = JSON.stringify(message)
-                                    fetch('http://localhost:8000/createmessage', { method: "POST", body: json, headers: { 'Content-Type': 'application/json' } })
+                                    fetch(' https://arcane-brushlands-52780.herokuapp.com/createmessage', { method: "POST", body: json, headers: { 'Content-Type': 'application/json' } })
                                 }
                                 (document.getElementById("text") as HTMLInputElement).value = null
                             }

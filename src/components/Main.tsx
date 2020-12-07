@@ -1,6 +1,7 @@
 import {
     BrowserRouter as Router,
     Route,
+    Redirect,
     Switch,
     useHistory,
     withRouter,
@@ -15,6 +16,7 @@ import {
         <Switch>
           <Route exact path={'/login'} component={AuthorisationForm} />
           <Route exact path="/messenger" component={MessageForm} />
+          <Redirect from='/' to='/login'/>
         </Switch>
       </Router>
     )

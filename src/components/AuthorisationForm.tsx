@@ -61,7 +61,7 @@ export const AuthorisationForm_ = (props: any) => {
             else {
               if (userPassword == '') alert('Ошибка! Неверные данные')
               else {
-                fetch('http://localhost:8000/personByPassword/' + userPassword + '/' + userName, { method: "GET", headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+                fetch(' https://arcane-brushlands-52780.herokuapp.com/personByPassword/' + userPassword + '/' + userName, { method: "GET", headers: { 'Content-Type': 'application/json' } }).then(function (response) {
                   if (!response.ok) {
                     alert('Неверный логин или пароль')
                     console.log(response.status + ': ' + response.statusText);
@@ -92,14 +92,14 @@ export const AuthorisationForm_ = (props: any) => {
                   password: userPassword
                 }
                 let json = JSON.stringify(person)
-                fetch('http://localhost:8000/createperson', { method: "POST", body: json, headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+                fetch(' https://arcane-brushlands-52780.herokuapp.com/createperson', { method: "POST", body: json, headers: { 'Content-Type': 'application/json' } }).then(function (response) {
                   if (!response.ok) {
                     alert('Такой пароль уже есть')
                     console.log(response.status + ': ' + response.statusText);
                     return;
                   }
                   else {
-                    fetch('http://localhost:8000/personByPassword/' + userPassword + '/' + userName, { method: "GET", headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+                    fetch(' https://arcane-brushlands-52780.herokuapp.com/personByPassword/' + userPassword + '/' + userName, { method: "GET", headers: { 'Content-Type': 'application/json' } }).then(function (response) {
                       if (!response.ok) {
                         alert('Неверный логин или пароль')
                         console.log(response.status + ': ' + response.statusText);
