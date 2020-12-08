@@ -53,6 +53,7 @@ export const MessageForm_ = (props: any) => {
 
 
     useEffect(() => {
+        setTimeout("", 5000)
         fetch(' https://arcane-brushlands-52780.herokuapp.com/persons').then(function (response) {
             if (!response.ok) {
                 console.log(response.status + ': ' + response.statusText);
@@ -66,7 +67,7 @@ export const MessageForm_ = (props: any) => {
             .catch(function (err) {
                 console.log('Fetch Error :-S', err);
             });
-    }, [])
+    }, [people])
 
     useEffect(() => {
         setTimeout("", 2000)
